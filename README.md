@@ -1,1 +1,2 @@
+# Movie Database
 This is the final project for CS 419 Advanced Web Development developed by Claire Cahill, Amanda Crawford, and Sneha Shah. It is a movie database, connecting to [The Movie Database API](https://developers.themoviedb.org/3/movies/get-movie-details), where users can search and view movies, TV shows, and actors, as well as view trending movies and TV shows. It is created with create-react-app.
