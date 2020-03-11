@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
-import {NavLink, Switch, Route} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Home from './Home';
 import Search from './Search';
 import TrendingTV from './TrendingTV';
@@ -82,20 +82,6 @@ export default class Navbar extends React.Component {
                         </div> : null}
                     </div>
                 </ul>
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/search">
-                        <Search />
-                    </Route>
-                    <Route path="/trending/movies">
-                        <TrendingMovies />
-                    </Route>
-                    <Route path="/trending/tv">
-                        <TrendingTV />
-                    </Route>
-                </Switch>
             </div>
         );
     }
