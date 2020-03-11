@@ -129,7 +129,8 @@ export default function Search(props) {
                                 <th>Popularity</th>
                             </tr>
                         {tvShows.map(t => 
-                            <tr key={t.id} className="data-row">
+                            <tr key={t.id} className="data-row" 
+                                onClick={() => window.location.href=`/tv/${t.id}`}>
                                 <td>{t.name}</td>
                                 <td>{t.first_air_date}</td>
                                 <td>{t.vote_count}</td>
@@ -149,7 +150,8 @@ export default function Search(props) {
                                 <th>Popularity</th>
                             </tr>
                         {people.map(p => 
-                            <tr key={p.id} className="data-row">
+                            <tr key={p.id} className="data-row"
+                                onClick={() => window.location.href=`/person/${p.id}`}>
                                 <td>{p.name}</td>
                                 <td>{makeList(p.known_for)}</td>
                                 <td>{p.popularity}</td>

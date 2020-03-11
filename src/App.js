@@ -6,6 +6,8 @@ import Search from './Search';
 import TrendingTV from './TrendingTV';
 import TrendingMovies from './TrendingMovies';
 import Movie from './Movie'
+import TVShow from './TVShow'
+import Person from './Person'
 
 function App() {
   return (
@@ -28,6 +30,12 @@ function App() {
             </Route>
             <Route path="/movie/:id">
               <Movie />
+            </Route>
+            <Route path="/tv/:id">
+              <TVShow />
+            </Route>
+            <Route path="/person/:id">
+              <Person />
             </Route>
         </Switch>
 
