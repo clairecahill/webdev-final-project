@@ -80,13 +80,21 @@ export default function Search(props) {
         return list
     }
 
-    const labelStyle = css`
-        display: block;
+    const style = css`
+        .data-row {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .input-label {
+            display: block;
+        }
     `
     
     return(
-        <div>
-            <label css={labelStyle} for="movieSearch">Search for movies, TV shows, or people</label>
+        <div css={style}>
+            <label className="input-label" for="movieSearch">Search for movies, TV shows, or people</label>
             <input onKeyDown={e => handleKeyDown(e)} type="search" id="movieSearch" placeholder="Search..."></input>
             <button onClick={e => setSearchResults(e)}>Search</button>
                 
@@ -100,7 +108,8 @@ export default function Search(props) {
                                 <th>Popularity</th>
                             </tr>
                         {movies.map(m => 
-                            <tr key={m.id}>
+                            <tr key={m.id} className="data-row" 
+                                onClick={() => window.location.href=`/movie/${m.id}`}>
                                 <td>{m.title}</td>
                                 <td>{m.release_date}</td>
                                 <td>{m.popularity}</td>
@@ -120,7 +129,7 @@ export default function Search(props) {
                                 <th>Popularity</th>
                             </tr>
                         {tvShows.map(t => 
-                            <tr key={t.id}>
+                            <tr key={t.id} className="data-row">
                                 <td>{t.name}</td>
                                 <td>{t.first_air_date}</td>
                                 <td>{t.vote_count}</td>
@@ -140,7 +149,7 @@ export default function Search(props) {
                                 <th>Popularity</th>
                             </tr>
                         {people.map(p => 
-                            <tr key={p.id}>
+                            <tr key={p.id} className="data-row">
                                 <td>{p.name}</td>
                                 <td>{makeList(p.known_for)}</td>
                                 <td>{p.popularity}</td>
