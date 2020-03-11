@@ -5,6 +5,7 @@ import Home from './Home';
 import Search from './Search';
 import TrendingTV from './TrendingTV';
 import TrendingMovies from './TrendingMovies';
+import Lost from "./Lost";
 import {jsx, css} from '@emotion/core';
 
 export default class Navbar extends React.Component {
@@ -30,7 +31,7 @@ export default class Navbar extends React.Component {
             return "active"
         }
     }
-    
+
     render(){
         const ulStyle = css`
             list-style-type: none;
@@ -48,7 +49,7 @@ export default class Navbar extends React.Component {
             padding: 14px;
             color: white;
             display: flex;
-      
+
             &:hover {
                 background-color: #B8B8B8;
                 color: #484848;
@@ -75,7 +76,7 @@ export default class Navbar extends React.Component {
                     </li>
                     <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
                         <li className={this.checkUrl()} css={linkStyle}>Trending</li>
-                        {this.state.showDD ? 
+                        {this.state.showDD ?
                         <div className="dropdownContent">
                             <NavLink css={[linkStyle, dropdownStyle]} activeClassName="active" to="/trending/movies">Movies</NavLink>
                             <NavLink css={[linkStyle, dropdownStyle]} activeClassName="active" to="/trending/tv">TV Shows</NavLink>
@@ -94,6 +95,9 @@ export default class Navbar extends React.Component {
                     </Route>
                     <Route path="/trending/tv">
                         <TrendingTV />
+                    </Route>
+                    <Route path="*" >
+                      <Lost />
                     </Route>
                 </Switch>
             </div>
