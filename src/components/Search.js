@@ -2,12 +2,14 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {jsx, css} from '@emotion/core';
+import Pic from '../lordVader.jpg'
 
 export default function Search(props) {
 
     const [movies, setMovies] = useState([]);
     const [tvShows, setTvShows] = useState([]);
     const [people, setPeople] = useState([]);
+    const [noResults, setNoResults] = useState(false);
 
 
     function handleKeyDown(e) {
@@ -56,7 +58,11 @@ export default function Search(props) {
             responseBody = await response.json();
             setPeople(responseBody.results);
         } catch(e) {
-            console.log(e)
+            console.log(e);
+        }
+
+        if (movies.length === 0 && tvShows.length === 0 && people.length === 0) {
+            setNoResults(true);
         }
     }
 
@@ -160,6 +166,14 @@ export default function Search(props) {
                         </tbody>
                     </table> 
                 : null}
+
+                {noResults ? 
+                    <div>
+                        <p><i>"Lord Vader, our ships have completed their scan and found nothing."</i></p>
+                        <img src={Pic} alt="Lord Vader..."/>
+                    </div>
+                    :null
+                }
 
         </div>
     );
