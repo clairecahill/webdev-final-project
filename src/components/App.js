@@ -9,10 +9,24 @@ import Movie from './Movie'
 import TVShow from './TVShow'
 import Person from './Person'
 import Lost from './Lost'
+import {Global, jsx, css} from '@emotion/core';
 
 function App() {
+
+  const style = css`
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+    body {
+      font-family: Muli, sans-serif
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  `
+
   return (
     <div className="App">
+      <Global styles={style}/>
+
       <Router>
         <Navbar />
 

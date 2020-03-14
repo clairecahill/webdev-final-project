@@ -69,27 +69,27 @@ export default function TrendingMovies(props) {
       <div css={style}>
         <h1>Trending Movies of the Week.</h1>
           <label className="input-label" for="movieSearch">Click to load trending movies this week</label>
-          <button onClick={e => setSearchResults(e)}>Load Movies</button>
+          <button type="button" className="btn btn-primary" onClick={e => setSearchResults(e)}>Load Movies</button>
 
               {movies.length > 0 ?
-                  <table>
-                      <h3>Movies</h3>
-                      <tbody>
-                          <tr>
-                              <th>Title</th>
-                              <th>Release date</th>
-                              <th>Popularity</th>
-                          </tr>
-                      {movies.map(m =>
-                          <tr key={m.id} className="data-row"
-                              onClick={() => window.location.href=`/movie/${m.id}`}>
-                              <td>{m.title}</td>
-                              <td>{m.release_date}</td>
-                              <td>{m.popularity}</td>
-                          </tr>
-                      )}
-                      </tbody>
-                  </table>
+                    <table className="table">
+                        <h3>Movies</h3>
+                        <tbody>
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Release date</th>
+                                <th scope="col">Popularity</th>
+                            </tr>
+                        {movies.map(m => 
+                            <tr key={m.id} className="data-row"
+                                onClick={() => window.location.href=`/movie/${m.id}`}>
+                                <th scope="row">{m.title}</th>
+                                <td>{m.release_date}</td>
+                                <td>{m.popularity}</td>
+                            </tr>
+                        )}
+                        </tbody>
+                    </table> 
               : null}
 
       </div>

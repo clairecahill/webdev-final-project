@@ -67,27 +67,27 @@ export default function TrendingTV(props) {
       <div css={style}>
       <h1>Trending TV Shows of the Week.</h1>
         <label className="input-label" for="movieSearch">Click to load trending TV Shows this week</label>
-        <button onClick={e => setSearchResults(e)}>Load Shows</button>
+        <button type="button" className="btn btn-primary" onClick={e => setSearchResults(e)}>Load Shows</button>
 
               {tvShows.length > 0 ?
-                  <table>
-                      <h3>TV Shows</h3>
-                      <tbody>
-                          <tr>
-                              <th>Title</th>
-                              <th>First air date</th>
-                              <th>Popularity</th>
-                          </tr>
-                      {tvShows.map(t =>
-                          <tr key={t.id} className="data-row"
-                              onClick={() => window.location.href=`/tv/${t.id}`}>
-                              <td>{t.name}</td>
-                              <td>{t.first_air_date}</td>
-                              <td>{t.vote_count}</td>
-                          </tr>
-                      )}
-                      </tbody>
-                  </table>
+                <table className="table">
+                    <h3>TV Shows</h3>
+                    <tbody>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">First air date</th>
+                            <th scope="col">Popularity</th>
+                        </tr>
+                    {tvShows.map(t => 
+                        <tr key={t.id} className="data-row" 
+                            onClick={() => window.location.href=`/tv/${t.id}`}>
+                            <th scope="row">{t.name}</th>
+                            <td>{t.first_air_date}</td>
+                            <td>{t.vote_count}</td>
+                        </tr>
+                    )}
+                    </tbody>
+                </table>
               : null}
 
       </div>

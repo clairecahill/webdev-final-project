@@ -35,8 +35,9 @@ export default class Navbar extends React.Component {
             width: 100%;
             background-color: #484848;
             position: relative;
-            top: -18px;
-            height: 61px;
+            top: -5px;
+            height: 65px;
+            z-index: 2;
         `
         const linkStyle = css`
             text-decoration: none;
@@ -49,6 +50,7 @@ export default class Navbar extends React.Component {
                 background-color: #B8B8B8;
                 color: #484848;
                 cursor: pointer;
+                text-decoration:none;
             }
             &.active {
                 background-color: #B8B8B8;
