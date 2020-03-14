@@ -1,10 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import Home from './Home';
-import Search from './Search';
-import TrendingTV from './TrendingTV';
-import TrendingMovies from './TrendingMovies';
 import {jsx, css} from '@emotion/core';
 
 export default class Navbar extends React.Component {

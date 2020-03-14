@@ -1,5 +1,5 @@
 import React from 'react';
-import Pic from './thatsAll.jpeg';
+import Pic from '../thatsAll.jpeg';
 
 export default class Lost extends React.Component {
     render(){
