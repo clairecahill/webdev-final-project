@@ -23,6 +23,7 @@ export default function Search(props) {
         setMovies([]);
         setTvShows([]);
         setPeople([]);
+        setNoResults(false);
 
         e.preventDefault();
         const query = document.getElementById("movieSearch").value;
