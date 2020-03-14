@@ -8,13 +8,14 @@ import TrendingMovies from './TrendingMovies';
 import Movie from './Movie'
 import TVShow from './TVShow'
 import Person from './Person'
+import Lost from './Lost'
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
-      
+
         <Switch>
             <Route exact path="/">
                 <Home />
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path="/person/:id">
               <Person />
+            </Route>
+            <Route path="*">
+              <Lost />
             </Route>
         </Switch>
 
