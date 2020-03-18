@@ -89,13 +89,13 @@ export default function TrendingMovies(props) {
   `
   return(
       <div css={[style, trending]}>
-        <h1 css={trending}>Trending Movies of the Week.</h1>
+        <h1 css={trending}>Trending Movies of the Week</h1>
         <tbody css={trending}> <label className="input-label" for="movieSearch">Click to load trending movies this week</label></tbody>
           <button css={buttonCss} onClick={e => setSearchResults(e)}>Load Movies</button>
 
               {movies.length > 0 ?
                   <table css={headings}>
-                      <h3>Movies</h3>
+                      <h3>Hot Movies This Week!</h3>
                       <tbody>
                           <tr css={headings}>
                               <th>Title</th>

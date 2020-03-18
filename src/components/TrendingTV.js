@@ -86,13 +86,13 @@ export default function TrendingTV(props) {
   `
   return(
       <div css={[style, trending]}>
-      <h1 css={trending}>Trending TV Shows of the Week.</h1>
+      <h1 css={trending}>Trending TV Shows of the Week</h1>
         <tbody css={trending}><label className="input-label" for="movieSearch">Click to load trending TV Shows this week</label></tbody>
         <button css={buttonCss} onClick={e => setSearchResults(e)}>Load Shows</button>
 
               {tvShows.length > 0 ?
                   <table css={headings}>
-                      <h3>TV Shows</h3>
+                      <h3>Hot TV Shows This Week!</h3>
                       <tbody>
                           <tr css={headings}>
                               <th>Title</th>
