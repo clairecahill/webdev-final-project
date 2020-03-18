@@ -52,6 +52,7 @@ export default function TrendingTV(props) {
   }
 
   const style = css`
+      text-align: center;
       .data-row {
           &:hover {
               cursor: pointer;
@@ -62,28 +63,46 @@ export default function TrendingTV(props) {
           display: block;
       }
   `
-
+  const trending = css`
+    text-align: center;
+  `
+  const buttonCss = css`
+    background-color: #5c9ead;
+    border-radius: 5px;
+  `
+  const headings = css`
+    text-align: justify;
+    padding: 5px;
+  `
+  const results = css`
+    padding: 5px;
+    padding-left: 25px;
+    &:hover{
+      background-color: #5c9ead;
+      height: 10px;
+    }
+  `
   return(
-      <div css={style}>
-      <h1>Trending TV Shows of the Week.</h1>
-        <label className="input-label" for="movieSearch">Click to load trending TV Shows this week</label>
-        <button onClick={e => setSearchResults(e)}>Load Shows</button>
+      <div css={[style, trending]}>
+      <h1 css={trending}>Trending TV Shows of the Week.</h1>
+        <tbody css={trending}><label className="input-label" for="movieSearch">Click to load trending TV Shows this week</label></tbody>
+        <button css={buttonCss} onClick={e => setSearchResults(e)}>Load Shows</button>
 
               {tvShows.length > 0 ?
-                  <table>
+                  <table css={headings}>
                       <h3>TV Shows</h3>
                       <tbody>
-                          <tr>
+                          <tr css={headings}>
                               <th>Title</th>
                               <th>First air date</th>
                               <th>Popularity</th>
                           </tr>
                       {tvShows.map(t =>
-                          <tr key={t.id} className="data-row"
+                          <tr css={results} key={t.id} className="data-row"
                               onClick={() => window.location.href=`/tv/${t.id}`}>
-                              <td>{t.name}</td>
-                              <td>{t.first_air_date}</td>
-                              <td>{t.vote_count}</td>
+                              <td css={results}>{t.name}</td>
+                              <td css={results}>{t.first_air_date}</td>
+                              <td css={results}>{t.vote_count}</td>
                           </tr>
                       )}
                       </tbody>
