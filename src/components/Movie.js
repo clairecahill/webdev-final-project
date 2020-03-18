@@ -9,7 +9,7 @@ import {jsx, css} from '@emotion/core';
 export default function Movie(props){
     const {id} = useParams();
     const [data, setData] = useState({});
-    
+
     useEffect(() => {
         getMovieData();
     }, []);
@@ -29,13 +29,16 @@ export default function Movie(props){
         }
     }
 
+    const detail = css`
+      padding: 15px;
+    `
     return (
-        <div>
+        <div css={detail}>
             <h1>{data.title}</h1>
             <p>{data.overview}</p>
-            <p>Popularity: {data.popularity}</p>
-            <p>Release date: {data.release_date}</p>
+            <p><b>Popularity:</b> {data.popularity}</p>
+            <p><b>Release date:</b> {data.release_date}</p>
             <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="poster" />
-        </div> 
+        </div>
     )
 }

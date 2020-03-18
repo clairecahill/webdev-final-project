@@ -26,39 +26,89 @@ export default class Navbar extends React.Component {
             return "active"
         }
     }
-    
+
     render(){
         const ulStyle = css`
             list-style-type: none;
             display: flex;
+            justify-content: center;
             padding: 0px;
             width: 100%;
-            background-color: #484848;
+            background-color: #326273;
             position: relative;
-            top: -18px;
-            height: 61px;
+            top: -16px;
+            height: 76px;
+            @media (max-width: 768px) {
+              display: flex;
+              flex-direction:row;
+              height: 60px;
+            }
         `
         const linkStyle = css`
             text-decoration: none;
             font-size: 25px;
-            padding: 14px;
+            padding-left: 54px;
+            padding-right: 54px;
+            padding-top: 15px;
             color: white;
             display: flex;
-      
+            border-radius: 5px;
+
             &:hover {
-                background-color: #B8B8B8;
+                background-color: #e39774;
                 color: #484848;
                 cursor: pointer;
+                height: 61px;
             }
             &.active {
-                background-color: #B8B8B8;
+                background-color: #e39774;
                 color: #484848;
+                height: 61px;
+            }
+            @media (max-width: 768px) {
+              text-align: center;
+              float: none;
+              &:hover{
+                background-color: #e39774;
+                height: 45px;
+              }
+              &:focus{
+                background-color: #e39774;
+                height: 55px;
+              }
+              &.active {
+                  background-color: #e39774;
+                  color: #484848;
+                  height: 45px;
+              }
+              top: 0;
+              left: 0;
+              transition: 0.5s;
             }
         `
 
         const dropdownStyle = css`
-            background-color: #484848;
+            background-color: #326273;
             color: white;
+            height: 61px;
+
+            @media (max-width: 768px){
+              height: 61px;
+              &:hover{
+                background-color: #e39774;
+                height: 61px;
+              }
+              &:focus{
+                background-color: #e39774;
+                height: 61px;
+              }
+              &.active {
+                  background-color: #e39774;
+                  color: #484848;
+                  height: 61px;
+              }
+
+            }
         `
         return(
             <div>
@@ -71,7 +121,7 @@ export default class Navbar extends React.Component {
                     </li>
                     <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
                         <li className={this.checkUrl()} css={linkStyle}>Trending</li>
-                        {this.state.showDD ? 
+                        {this.state.showDD ?
                         <div className="dropdownContent">
                             <NavLink css={[linkStyle, dropdownStyle]} activeClassName="active" to="/trending/movies">Movies</NavLink>
                             <NavLink css={[linkStyle, dropdownStyle]} activeClassName="active" to="/trending/tv">TV Shows</NavLink>

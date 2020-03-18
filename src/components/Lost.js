@@ -1,10 +1,15 @@
+/** @jsx jsx */
 import React from 'react';
+import {jsx, css} from '@emotion/core';
 import Pic from '../thatsAll.jpeg';
 
 export default class Lost extends React.Component {
     render(){
+      const error = css`
+        text-align: center;
+      `
         return(
-            <div>
+            <div css={error}>
               <h1>Whoops!</h1>
               <div><img src={Pic} alt="That's All Folks!"/></div>
 

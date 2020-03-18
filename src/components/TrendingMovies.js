@@ -54,6 +54,9 @@ export default function TrendingMovies(props) {
   }
 
   const style = css`
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       .data-row {
           &:hover {
               cursor: pointer;
@@ -64,28 +67,47 @@ export default function TrendingMovies(props) {
           display: block;
       }
   `
-
+  const trending = css`
+    display: flex;
+    justify-content: center;
+  `
+  const buttonCss = css`
+    background-color: #5c9ead;
+    border-radius: 5px;
+  `
+  const headings = css`
+    text-align: justify;
+    padding: 5px;
+  `
+  const results = css`
+    padding: 5px;
+    padding-left: 25px;
+    &:hover{
+      background-color: #5c9ead;
+      height: 10px;
+    }
+  `
   return(
-      <div css={style}>
-        <h1>Trending Movies of the Week.</h1>
-          <label className="input-label" for="movieSearch">Click to load trending movies this week</label>
-          <button onClick={e => setSearchResults(e)}>Load Movies</button>
+      <div css={[style, trending]}>
+        <h1 css={trending}>Trending Movies of the Week</h1>
+        <tbody css={trending}> <label className="input-label" for="movieSearch">Click to load trending movies this week</label></tbody>
+          <button css={buttonCss} onClick={e => setSearchResults(e)}>Load Movies</button>
 
               {movies.length > 0 ?
-                  <table>
-                      <h3>Movies</h3>
+                  <table css={headings}>
+                      <h3>Hot Movies This Week!</h3>
                       <tbody>
-                          <tr>
+                          <tr css={headings}>
                               <th>Title</th>
                               <th>Release date</th>
                               <th>Popularity</th>
                           </tr>
                       {movies.map(m =>
-                          <tr key={m.id} className="data-row"
+                          <tr css={results} key={m.id} className="data-row"
                               onClick={() => window.location.href=`/movie/${m.id}`}>
-                              <td>{m.title}</td>
-                              <td>{m.release_date}</td>
-                              <td>{m.popularity}</td>
+                              <td css={results} >{m.title}</td>
+                              <td css={results} >{m.release_date}</td>
+                              <td css={results} >{m.popularity}</td>
                           </tr>
                       )}
                       </tbody>

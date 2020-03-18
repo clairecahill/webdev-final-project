@@ -9,7 +9,7 @@ import {jsx, css} from '@emotion/core';
 export default function Person(props){
     const {id} = useParams();
     const [data, setData] = useState({});
-    
+
     useEffect(() => {
         getPersonData();
     }, []);
@@ -29,14 +29,17 @@ export default function Person(props){
         }
     }
 
+    const detail = css`
+      padding: 15px;
+    `
     return (
-        <div>
+        <div css={detail}>
             <h1>{data.name}</h1>
             <p>{data.biography}</p>
-            <p>Popularity: {data.popularity}</p>
-            <p>Birthday: {data.birthday}</p>
-            <p>Place of birth: {data.place_of_birth}</p>
+            <p><b>Popularity: </b>{data.popularity}</p>
+            <p><b>Birthday: </b>{data.birthday}</p>
+            <p><b>Place of birth:</b> {data.place_of_birth}</p>
             <img src={`https://image.tmdb.org/t/p/w500/${data.profile_path}`} alt="poster" />
-        </div> 
+        </div>
     )
 }
