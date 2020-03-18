@@ -88,6 +88,9 @@ export default function Search(props) {
     }
 
     const style = css`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         .data-row {
             &:hover {
                 cursor: pointer;
@@ -98,13 +101,22 @@ export default function Search(props) {
             display: block;
         }
     `
-    
+    const search = css`
+      display: flex;
+      justify-content: center;
+    `
+    const searchbar = css`
+      border-radius: 5px;
+    `
+    const buttonCss = css`
+      background-color: #5c9ead;
+    `
     return(
         <div css={style}>
-            <h1><label className="input-label" for="movieSearch">Search for movies, TV shows, or people</label></h1>
-            <input onKeyDown={e => handleKeyDown(e)} type="search" id="movieSearch" placeholder="Search..."></input>
-            <button onClick={e => setSearchResults(e)}>Search</button>
-
+            <h1 css={search}><label className="input-label" for="movieSearch">Search for movies, TV shows, or people</label></h1>
+            <h1 css={search}><input css={searchbar} onKeyDown={e => handleKeyDown(e)} type="search" id="movieSearch" placeholder="Search..."></input>
+            <button css={[searchbar, buttonCss]} onClick={e => setSearchResults(e)}>Search</button>
+            </h1>
                 {movies.length > 0 ?
                     <table>
                         <h3>Movies</h3>
