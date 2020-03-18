@@ -9,7 +9,7 @@ import {jsx, css} from '@emotion/core';
 export default function TVShow(props){
     const {id} = useParams();
     const [data, setData] = useState({});
-    
+
     useEffect(() => {
         getTVData();
     }, []);
@@ -29,13 +29,17 @@ export default function TVShow(props){
         }
     }
 
+    const detail = css`
+      padding: 15px;
+    `
+
     return (
-        <div>
+        <div css={detail}>
             <h1>{data.name}</h1>
             <p>{data.overview}</p>
-            <p>Popularity: {data.popularity}</p>
-            <p>Air date: {data.first_air_date}</p>
+            <p><b>Popularity: </b>{data.popularity}</p>
+            <p><b>Air date: </b>{data.first_air_date}</p>
             <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="poster" />
-        </div> 
+        </div>
     )
 }
