@@ -52,7 +52,9 @@ export default function TrendingTV(props) {
   }
 
   const style = css`
-      text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
       .data-row {
           &:hover {
               cursor: pointer;
