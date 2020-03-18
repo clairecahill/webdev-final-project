@@ -28,6 +28,7 @@ export default function Search(props) {
         e.preventDefault();
         const query = document.getElementById("movieSearch").value;
         let responseBody = {};
+        let noMovies, noTV, noPeople = false;
 
         // search for movies
         try {
@@ -36,6 +37,9 @@ export default function Search(props) {
             );
             responseBody = await response.json();
             setMovies(responseBody.results);
+            if(responseBody.total_results === 0) {
+                noMovies = true;
+            }
         } catch(e) {
             console.log(e)
         }
@@ -47,6 +51,9 @@ export default function Search(props) {
             );
             responseBody = await response.json();
             setTvShows(responseBody.results);
+            if(responseBody.total_results === 0) {
+                noTV = true;
+            }
         } catch(e) {
             console.log(e)
         }
@@ -58,13 +65,17 @@ export default function Search(props) {
             );
             responseBody = await response.json();
             setPeople(responseBody.results);
+            if(responseBody.total_results === 0) {
+                noPeople = true;
+            }
         } catch(e) {
             console.log(e);
         }
 
-        if (movies.length === 0 && tvShows.length === 0 && people.length === 0) {
+        if(noMovies && noTV && noPeople){
             setNoResults(true);
         }
+
     }
 
     function makeList(known_for){
