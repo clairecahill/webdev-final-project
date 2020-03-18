@@ -38,6 +38,11 @@ export default class Navbar extends React.Component {
             position: relative;
             top: -16px;
             height: 76px;
+            @media (max-width: 768px) {
+              display: flex;
+              flex-direction:row;
+              height: 60px;
+            }
         `
         const linkStyle = css`
             text-decoration: none;
@@ -60,12 +65,50 @@ export default class Navbar extends React.Component {
                 color: #484848;
                 height: 61px;
             }
+            @media (max-width: 768px) {
+              text-align: center;
+              float: none;
+              &:hover{
+                background-color: #e39774;
+                height: 45px;
+              }
+              &:focus{
+                background-color: #e39774;
+                height: 55px;
+              }
+              &.active {
+                  background-color: #e39774;
+                  color: #484848;
+                  height: 45px;
+              }
+              top: 0;
+              left: 0;
+              transition: 0.5s;
+            }
         `
 
         const dropdownStyle = css`
             background-color: #326273;
             color: white;
             height: 61px;
+
+            @media (max-width: 768px){
+              height: 61px;
+              &:hover{
+                background-color: #e39774;
+                height: 61px;
+              }
+              &:focus{
+                background-color: #e39774;
+                height: 61px;
+              }
+              &.active {
+                  background-color: #e39774;
+                  color: #484848;
+                  height: 61px;
+              }
+
+            }
         `
         return(
             <div>
